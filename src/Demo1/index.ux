@@ -1,0 +1,102 @@
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="demo-page">
+    <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+
+    <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title">{{text}}</text>
+    </div>
+      <div class="child">
+      <text class="title"  onclick="route1">进入input页面</text>
+    </div>
+    <div class="child">
+      <text class="title" onclick="route">转入下一页面</text>
+    </div>
+
+  </div>
+</template>
+
+<script>
+import router from '@system.router'
+export default {
+
+  private: {
+    text: '欢迎'
+  },
+  route() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.push({
+      uri: '/Login'
+    })
+  },
+  /**
+   * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
+   * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+   */
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  }
+}
+</script>
+
+<style>
+.demo-page {
+  display: flex;
+
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  background-color: #000000;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.child {
+
+  margin: auto; /* Magic! */
+  background-color: #faebd7;
+}
+</style>

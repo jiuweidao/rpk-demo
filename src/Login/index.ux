@@ -1,0 +1,55 @@
+<template>
+  <div class="login-page">
+    <div class="login-content">
+      <text class="title">登录</text>
+      <input type="text" class="user-name" placeholder="请输入用户名" onchange="changeName" />
+      <input type="password" class="password" placeholder="请输入密码" onchange="changePassword" />
+      <text class="tips">
+        <a class="tip-left" >忘记密码?</a>
+        <a class="tip-right" >验证码登录</a>
+      </text>
+    </div>
+    <div>
+      <input type="button" class="login-btn" value="登录" onclick="login" />
+    </div>
+
+  </div>
+
+</template>
+<script>
+import router from '@system.router'
+import api from '../Api/api.js'
+export default {
+  private: {
+    userName: '',
+    password: '',
+
+  },
+  changeName(e) {
+    this.userName = e.value
+    console.info(e.value)
+  },
+  changePassword(e) {
+    this.password = e.value
+    console.info(e.value)
+  },
+  login() {
+    api.login({ userName: this.userName, password: this.password })
+  },
+  route() {
+    // 跳转到应用内的某个页面，router用法详见：文档->接口->页面路由
+    router.push({
+      uri: '/Demo1'
+    })
+  },
+}
+</script>
+
+<style lang="less">
+@font-face {
+  font-family: myfont;
+  src: url("http://www.example.com/myfont.ttf");
+}
+@import "./style.less";
+</style>
+
